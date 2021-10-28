@@ -1,0 +1,22 @@
+GCS: global citation score 总被引用次数
+CR: cited references 文章引用参考文献的数量
+LCS: local citation score 本地被引用次数
+LCR: local cited references 文章引用参考文献的数量(当前数据库)
+
+git init
+git add
+git commit
+git commit -m "msgs"
+git log
+git log --pretty=oneline
+git reset --hard commit_id
+e.g. git reset --hard HEAD~1 :上一版
+cat *.txt
+git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别
+workplace -> add -> repository (stage -> commit -> master)
+git checkout -- file可以丢弃工作区的修改
+git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区
+
+git push -u origin master 远程库的名字就是origin
+
+git branch
