@@ -1,8 +1,10 @@
+1027
 GCS: global citation score 总被引用次数
 CR: cited references 文章引用参考文献的数量
 LCS: local citation score 本地被引用次数
 LCR: local cited references 文章引用参考文献的数量(当前数据库)
 
+1028
 git init
 git add
 git commit
@@ -20,3 +22,555 @@ git reset命令既可以回退版本，也可以把暂存区的修改回退到�
 git push -u origin master 远程库的名字就是origin
 
 git branch
+
+1029
+what is a web server?
+
+web page
+A document which can be displayed in a web browser such as Firefox, 
+Google Chrome, Opera, Microsoft Internet Explorer or Edge, or Apple's Safari. 
+These are also often called just "pages."
+
+website
+A collection of web pages which are grouped together and usually connected together 
+in various ways. Often called a "web site" or a "site."
+
+web server
+A web server is a computer hosting one or more websites. "Hosting" means that 
+all the web pages and their supporting files are available on that computer. 
+The web server will send any web page from the website it is hosting to any user's browser, 
+per user request.
+
+Don't confuse websites and web servers. For example, if you hear someone say, 
+"My website is not responding", it actually means that the web server is not responding 
+and therefore the website is not available. More importantly, since a web server can 
+host multiple websites, the term web server is never used to designate a website, 
+as it could cause great confusion. In our previous example, if we said, "My web server 
+is not responding", it means that multiple websites on that web server are not available.
+
+search engine
+A web service that helps you find other web pages, such as Google, Bing, Yahoo, 
+or DuckDuckGo. Search engines are normally accessed through a web browser 
+(e.g. you can perform search engine searches directly in the address bar of Firefox,
+ Chrome, etc.) or through a web page (e.g. bing.com or duckduckgo.com).
+
+
+1030
+HTML HTML HTML HTML HTML
+element, nesting element, empty elements
+block-level elements & inline elements
+attributes, boolean attributes
+<p>: block-level element
+	 class
+<em>: line italic text
+	  inline element
+<strong>: strong text
+	      inline element
+<img>: empty element(void element)
+	   block-level element
+	   src & alt
+<a>: inline element
+     href & title & target
+<input>: inline element
+		 type & disabled
+
+
+block-level elements 和 inline elements 的区别
+block-level 可以embed block-level -不论写在哪里，都是另起一行
+inline 可以embed到 block-level里 -在block后面会另起一行，在inline后面则不会，和其它element在一起时，不会另起一行
+
+Entity references 实体引用
+&lt; --> "<"
+&gt; --> ">"
+&quot; --> """
+&apos; --> "'"
+&amp; --> "&"
+
+comments
+<!-- -->
+
+1031
+HTML
+<head>: <title>
+		<link> links to CSS
+		links to custom favicons, and other metadata
+		favicon = favorites Icon 网站头像
+		<link rel href type>
+		<meta charset="utf-8">
+		<meta name="author" content="Chris Mills">
+		<script src="">: 放在head中还是/body的上方？
+		<script src="" defer> 可以放在head 
+		<script src=""> 可以放在/body上方
+<span>: inline element
+<ul>: <li>
+<ol>: <li>
+nesting list is OK
+<b>: bold
+<i>: italic
+<u>: underline
+
+description lists
+<dl>: <dt> description term
+	  <dd> description definition
+
+quotations
+<blockquote>: cite
+<q>: inline quotations 会有引号
+<cite>: citations are styled in italic font by default
+
+Abbrevivation 缩写
+<abbr>: title
+
+<address>: only be used to provide contact information
+
+Superscript and subscript 上、下标
+<sup>
+<sub>
+
+Representing computer code
+<code>: For marking up generic pieces of computer code
+<pre>: For retaining whitespace (generally code blocks)
+<var>: For specifically marking up variable names
+<kbd>: For marking up keyboard (and other types of) input entered into the computer
+<samp>: For marking up the output of a computer program
+
+times and dates
+<time>: datetime
+
+
+header: <header>.
+navigation bar: <nav>.
+main content: <main>, with various content subsections represented by <article>, <section>, and <div> elements.
+sidebar: <aside>; often placed inside <main>.
+footer: <footer>.
+
+1102
+non-semantic wrappers
+<div>: inline non-semantic element
+       class
+<span>: block-level non-semantic element
+        class
+
+line breaks and horizontal rules
+<br>: the line break element
+<hr>: the thematic break element
+
+1103 Multimedia and Embedding
+<img>: src source
+	   alt
+	   width=""
+	   height=""
+	   title tooltip on mouse hover --not recommended
+
+annotating images
+<figure>: block-level element
+          <figcaption>: inline element
+		  A figure doesn't have to be an image
+
+CSS background images
+background-image: url("");
+if an image has meaning, in terms of your content, you should use an HTML image. 
+If an image is purely decoration, you should use CSS background images.
+
+Video and audio on the web
+<video>: src
+         controls
+		 the paragraph inside the <video> tags: fallback content
+container formats 容器格式
+		 <source>: src type
+		 width
+		 height
+		 autoplay
+		 loop
+		 muted
+		 preload: none auto metadata
+		 poster
+<audio>: just like <video>
+
+Displaying video text tracks
+WebVTT file format: .vtt
+                    cues(subtitles captions timed descriptions)
+<track>: kind
+         src
+		 srclang
+		 label
+
+1104
+from object to iframe -- other embedding technologies
+<iframe>: src
+          border
+		  allowfullscreen
+		  width
+		  height
+		  sandbox
+In order to improve speed, it's a good idea to set the iframe's src attribute 
+with JavaScript after the main content is done with loading. 
+<embed> <object> Once upon a time, plugins were indispensable on the Web. 
+
+Adding vector graphics to the Web
+SVG is an XML-based language for describing vector images.
+<svg>: <circle>
+       <rect>
+	   <feColorMatrix>
+	   <animate>
+	   <mask>
+You can also use SVGs as CSS background images
+
+Responsive images 响应图片
+art direction problem: <picture> media srcset
+resolution switching problem: CSS pixels
+CSS arguably has better tools for responsive design than HTML
+<img>: srcset="image filename intrinsic width in pixels"
+       sizes="(media condition) slot width, slot width"
+<meta name="viewport" content="width=device-width">
+
+splash page 启动页
+
+1105 HTML Tables
+In short, using tables for layout rather than CSS layout techniques is a bad idea.
+<table>: <td> table data : colspan rowspan
+         <tr> table row
+		 <th> table header : colspan rowspan
+		 <colgroup>:<col style= span=>
+
+HTML table advanced features and accessibility
+<table>: <caption>
+		 <thead>
+		 <tfoot>
+		 <tbody>
+
+Nesting Tables
+
+Tables for visually impaired users
+<th scope=> a header for the row or column
+<th id=>&<td headers=>
+The scope approach is usually enough for most tables.
+
+1106
+CSS: Cascading Style Sheets
+CSS is a rule-based language.
+CSS syntax
+selector {
+		 declarations like property: value;
+}
+
+changing the default behavior of elements
+remove list bullets
+li {
+  list-style-type: none;
+}
+
+Adding a class
+.special
+li.special
+
+Styling things based on their location in a document
+descendant combinator 后代选择器 li em
+adjacent sibling combinator 相邻兄弟选择器 h1 + p
+
+Styling things based on state
+a:link 
+a:visited
+a:hover
+
+Combining selectors and combinators
+article p span 
+h1 + ul + p
+body h1 + p .special
+
+
+
+1107
+How CSS is structured
+
+CSS rulesets
+	CSS Declaration Blocks
+		CSS declaration
+			property:value
+			
+Applying CSS to HTML
+1. Exyernal stylesheet
+2. Internal stylesheet
+ <head> <style>
+3. Inline style
+Avoid using CSS in this way, when possible.
+
+Selectors
+The CSS language has rules to control 
+which selector is stronger in the event of a conflict. 
+These rules are called cascade and specificity. 
+The cascade rule:
+	Later styles replace conflicting styles that appear earlier in the stylesheet. 
+The specificity rule:
+	 A class is rated as being more specific, as in having more specificity than the element selector, 
+	 so it cancels the other conflicting style declaration.
+
+Properties and values
+font-sizes
+width
+background-color
+color
+border
+Functions: calc() can do simple math within CSS
+           width: calc(90% - 30px);
+		   rotate()
+		   transform: rotate(0.8turn);
+		   
+
+@rules
+@media (min-width: 40em) {
+	body {
+	  background-color: blue;
+	}
+}
+如果viewport宽度大于40em，body背景设置为蓝色
+
+
+Shorthands
+shorthand properties: font background padding border margin
+shorthand properties set several values in a single line.
+e.g.1
+background: red url(bg-graphic.png) 10px 10px repeat-x fixed;
+is equivalent to these 5 lines:
+background-color: red;
+background-image: url(bg-graphic.png);
+background-position: 10px 10px;
+background-repeat: repeat-x;
+background-attachment: fixed;
+
+e.g.2
+padding: 10px 15px 15px 5px;
+is equivalent to these 4 lines:
+padding-top: 10px;
+padding-right: 15px;
+padding-bottom: 15px;
+padding-left: 5px;
+
+未指定的值将恢复为先前的值
+
+Comment
+/* */
+
+White space
+browsers ignore whitespace inside CSS
+Property names never have whitespace.
+
+
+How does CSS actually work?
+About the DOM document object model
+A DOM has a tree-like structure. 
+Each element, attribute, and piece of text in the markup language becomes a DOM node in the tree structure. 
+The nodes are defined by their relationship to other DOM nodes. 
+Some elements are parents of child nodes, and child nodes have siblings.
+
+
+CSS building blocks
+cascade/specificity/inheritance
+Things like widths (as mentioned above), margins, padding, and borders do not inherit.
+
+Controlling inheritance
+inherit: 和父类一致
+initial: 和property的默认值一致
+unset: 有继承属性则和父类一致，相当于设置了inherit;无继承属性则相当于initial
+revert: 和unset一致，不过无继承属性相当于浏览器默认值
+
+Resetting all property values by all
+all: inherit/initial/unset/revert
+
+!importantly:you can use to overrule all of the above calculations.
+However, we strongly recommend that you never use it unless you absolutely have to.
+
+CSS selectors
+Types of selectors
+1. Type, class, and ID selectors
+h1 {}
+.box {}
+#unique {}
+	1.1 Type selector 就是html中elements的名字
+	1.2 The universal selector
+		*: It selects everything in the document
+		Using the universal selector to make your selectors easier to read
+		article *:first-child {}
+	1.3 Class selectors
+		.:  It will select everything in the document with that class applied to it.
+		You can apply multiple classes to an element and target them individually, 
+		or only select the element when all of the classes in the selector are present.
+	1.4 ID selectors
+		#: used in the same way as a class selector
+		an ID can be used only once per page, 
+		and elements can only have a single id value applied to them
+	    Using the same ID multiple times in a document may appear to work for styling purposes, 
+		but don't do this. 
+		
+2. Attribute selectors 通过attribute来target elements
+a[title] {}
+a[href="https://example.com"] { }
+	2.1 Presence and value selectors
+		a[title] 有该title就行，无需唯一
+		a[href="https://example.com"] value必须恰好一致
+		p[class~="special"] value包含就行 可以空格
+		div[lang|="zh"] value包含就行 可以hyphen
+	2.2 Substring matching selectors
+		li[class^="box-"] 开头包含box就行
+		li[class$="-box"] 结尾是box就行
+		li[class*="box"] 包含box就行
+	2.3 Case-sensitivity 不区分大小
+	    如果想不区分大小写地匹配属性值，可以在右括号前使用值 i。
+3. Pseudo-classes and pseudo-elements
+a:hover {}
+p::first-line {}
+	3.1 Pseudo-class
+	--They target some bit of your document that is in a certain state
+	:last-child
+	:only-child
+	:invalid
+	:first-child
+	--User-action pseudo classes: dynamic pseudo-classes
+	:hover 鼠标悬停
+	:focus 鼠标点击，点击后格式不再改变
+	3.2 Pseudo-element
+	就像您在标记中添加了一个全新的 HTML 元素，而不是将类应用于现有元素
+	::first-line
+	3.3 Generating content with ::before and ::after
+	::before
+	::after
+4. Combinators
+child combinator >
+article > p {}
+	4.1 Descendant combinator
+	body article p
+	4.2 Child combinator
+	>: 和descendant的区别就是，只target最近的child
+	4.3 Adjacent sibling combinator
+	+： 相邻的elements会被target，且是下方的
+	4.3 General sibling combinator
+	~： 只要在下方就行，无需严格相邻，但是是相邻，在其它element里面不行
+	
+
+|--------------------------------------------------|
+|-在文件中引用相对路径时，一定注意是相对谁的路径！-|
+|--------------------------------------------------|
+
+1108
+The box model
+Everything in CSS has a box around it
+
+Block and inline boxes
+block boxes 
+inline boxes 
+inner display type 对内显示类型: element内部的element如何布局
+outer display type 对外显示类型: element本身和其它element如何布局
+1. outer display type of block
+<h1> <p> <li>
+2. outer display type of inline
+<a> <span> <em> <strong>
+inner display type: normal flow
+					flex
+					grid
+
+display: 默认应该是outer-inner
+其中，outer就2种，要么inline，要么block
+inner有flex、grid
+
+The CSS box model as a whole applies to block boxes. 
+Inline boxes use just some of the behavior defined in the box model. 
+
+The CSS box model
+Parts of a box
+Content box: can be sized by width and height
+Padding box: around the content as white space
+Border box: wraps the content and any padding
+Margin box: The margin is the outermost layer, wrapping the border as whitespace 
+between this box and other elements.
+
+The margin is not counted towards the actual size of the box
+1. The standard CSS box model
+.box {
+  width: 350px;
+  height: 150px;
+  margin: 10px;
+  padding: 25px;
+  border: 5px solid black;
+}
+
+2. The alternative CSS box model 它的width、height就是标准box的actual size
+.box {
+  box-sizing: border-box;
+}
+or
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+Margin：
+		The margin is an invisible space around your box. 
+		+ - 均可
+		margin-top
+		margin-right
+		margin-bottom
+		margin-left
+		
+		margin collapsing: 如果两个elements的margins接触了，那么接触的位置会合成1个margin
+		                   这个margin的size与原来2个margins的值有关
+						   ++：按绝对值大的效果
+						   +-：相加
+						   --：按绝对值大的效果
+
+Border:
+		top right bottom left
+		width style color
+
+Padding:
+		只+无-
+		Any background applied to your element will display behind the padding
+		top right bottom left
+		
+The box model and inline boxes
+the width and height are ignored
+margin, padding, and border are respected
+垂直方向不影响，但会覆盖其它字符，水平方向会cause other content to move away from the box
+
+为了解决上面这个问题，采用diplay: inline-block
+1.The width and height properties are respected.
+2.padding, margin, and border will cause other elements to be pushed away from the box.
+
+Backgrounds and border
+background-color:
+				extends underneath the content and padding box of the element
+background-image:
+				background-image: url("")
+				image displays on top of the color
+Controlling background-repeat:
+				background-repeat: no-repeat
+								   repeat-x 水平
+								   repeat-y 垂直
+								   repeat
+Sizing the 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
